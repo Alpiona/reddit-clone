@@ -65,7 +65,7 @@ const NewPostForm: React.FC<NewPostFormProps> = ({ user }) => {
   const handleCreatePost = async () => {
     const { communityId } = router.query;
 
-    const newPost: Post = {
+    const newPost: Omit<Post, "id"> = {
       communityId: communityId as string,
       creatorId: user.uid,
       creatorDisplayName: user.email!.split("@")[0],
